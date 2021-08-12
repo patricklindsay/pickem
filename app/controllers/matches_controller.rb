@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   def index
-    @matches_to_guess = Match.where.not(id: current_user_guesses.pluck(:match_id))
+    @matches_to_guess = Match.includes(:away_team, :home_team).where.not(id: current_user_guesses.pluck(:match_id))
   end
 
   def show
