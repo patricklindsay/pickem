@@ -1,0 +1,26 @@
+.text-center.mb-5
+  %p= @match.stadium.name
+  %p= l(@match.kickoff_at, format: :short)
+  %h1.mb-2= "#{@match.home_team.name} vs #{@match.away_team.name}"
+  - if match_previously_guessed?
+    %p= "Actual: #{@match.result.home_team_score} - #{@match.result.away_team_score}"
+    %p= "Your Guess: #{current_user_guess.home_team_score} - #{current_user_guess.away_team_score}"
+  - else
+    %p= "? - ?"
+.row
+  .col-6
+    .list-group
+      - @match.home_team.players.all.each do |player|
+        %button.list-group-item.list-group-item-action= player.name
+  .col-6
+    .list-group
+      - @match.away_team.players.all.each do |player|
+        %button.list-group-item.list-group-item-action= player.name
+  - unless match_previously_guessed?
+    .col-12.text-center
+      %hr
+
+      = form_with model: Guess.new(session_id: session.id, match: @match) do |form|
+        = form.hidden_field :match_id
+        = form.hidden_field :session_id
+        %button.btn.btn-primary AUTOGENERATE PICKS

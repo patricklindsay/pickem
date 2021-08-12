@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track' => true
+    = javascript_pack_tag 'application', 'data-turbo-track' => 'reload', async: Rails.env.production?, defer: Rails.env.production?
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    = csrf_meta_tags
+  %body
+    %header
+      .container
+        .d-flex.justify-content-between.align-items-center
+          %span.mb-0.h1
+            = link_to 'World Cup Pick Em', root_url
+          .score-board
+            %span.score-board-title Your Score
+            %span.score-board-score= current_user_score
+            %span.score-board-games
+              Games Played:
+              = current_user_guesses.count
+
+    .container.main-content.mb-5
+      = yield

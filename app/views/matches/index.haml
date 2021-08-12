@@ -1,0 +1,22 @@
+%h1.text-center World Cup 2018 Picks
+%p.text-center
+  Guess the score for any match and win 100 points!
+  %br
+  %small Receive 50 extra points for each correct player selection (coming soon)
+%h2 Your previous guesses
+- if current_user_guesses.any?
+  .list-group.mb-4
+    - current_user_guesses.all.each do |guess|
+      = link_to match_url(guess.match), class: 'list-group-item list-group-item-action' do
+        %span= "#{guess.match.home_team.name} vs #{guess.match.away_team.name} - "
+        - if guess.correct?
+          %span CORRECT
+        - else
+          %span INCORRECT
+- else
+  %p You haven't yet played any games
+
+%h2 Not yet guessed
+.list-group
+  - @matches_to_guess.all.each do |match|
+    = link_to "#{match.home_team.name} vs #{match.away_team.name}", match_url(match), class: 'list-group-item list-group-item-action'

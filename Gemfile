@@ -55,3 +55,5 @@ gem "typhoeus" # HTTP requests
 
 gem "hotwire-rails" # HTML over the wire
 gem 'scout_apm' # Performance monitoring
+gem "haml-rails", "~> 2.0" # HAML views
+

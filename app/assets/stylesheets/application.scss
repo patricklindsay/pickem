@@ -1,0 +1,92 @@
+@import "bootstrap/scss/functions";
+
+// Bootstrap default variables, mixins & utilities
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Bootstrap components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+// @import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+// @import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar";
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/accordion";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+// @import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+// @import "bootstrap/scss/modal";
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+// @import "bootstrap/scss/offcanvas";
+
+@import "bootstrap/scss/helpers"; // Helpers
+@import "bootstrap/scss/utilities/api"; // Utilities
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+}
+
+.turbo-progress-bar {
+  background-color: $primary;
+}
+
+header {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  color: $white;
+  z-index: 1;
+}
+
+.main-content {
+  margin-top: 120px;
+}
+
+.score-board {
+  text-align: center;
+  &-title, &-score, &-games {
+    display: block;
+  }
+  &-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  &-score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+  &-games {
+    font-style: italic;
+    font-size: .75rem;
+  }
+}
